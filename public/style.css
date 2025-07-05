@@ -181,6 +181,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    min-height: 0; 
 }
 
 .messages-area {
