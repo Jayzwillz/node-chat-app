@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Join Screen -->
+        <div id="joinScreen" class="join-screen">
+            <div class="join-card">
+                <div class="join-header">
+                    <i class="fas fa-comments"></i>
+                    <h1>Join Chat Room</h1>
+                    <p>Enter your username to start chatting</p>
+                </div>
+                <form id="joinForm">
+                    <input type="text" id="usernameInput" placeholder="Enter your username" required maxlength="20">
+                    <button type="submit">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Join Chat
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chatScreen" class="chat-screen hidden">
+            <div class="chat-container">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="header-left">
+                        <i class="fas fa-comments"></i>
+                        <h2>Chat Room</h2>
+                        <span id="onlineCount" class="online-count">0 online</span>
+                    </div>
+                    <button id="leaveBtn" class="leave-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Leave
+                    </button>
+                </div>
+
+                <!-- Main Chat Area -->
+                <div class="chat-main">
+                    <!-- Messages Container -->
+                    <div class="messages-container">
+                        <div id="messagesArea" class="messages-area">
+                            <div class="welcome-message">
+                                <i class="fas fa-rocket"></i>
+                                <h3>Welcome to the Chat Room!</h3>
+                                <p>Start a conversation by typing a message below.</p>
+                            </div>
+                        </div>
+                        <div id="typingIndicator" class="typing-indicator hidden">
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span id="typingText"></span>
+                        </div>
+                    </div>
+
+                    <!-- Online Users Sidebar -->
+                    <div class="users-sidebar">
+                        <div class="users-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Online Users</h3>
+                        </div>
+                        <div id="usersList" class="users-list">
+                            <!-- Users will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="message-input-container">
+                    <form id="messageForm" class="message-form">
+                        <div class="input-wrapper">
+                            <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500" autocomplete="off">
+                            <button type="submit" id="sendBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
