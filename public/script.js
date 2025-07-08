@@ -21,7 +21,7 @@ let isTyping = false;
 
 // Initialize Socket.IO connection
 function initializeSocket() {
-    socket = io();
+    socket = io("https://jayz-chat-app.onrender.com");
     
     // Socket event listeners
     socket.on('connect', () => {
